@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>spirix.fun – Status</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-black text-white font-[Inter]">
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-white/10">
+        <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+            <a href="index.html"
+                class="text-2xl font-extrabold bg-gradient-to-r from-fuchsia-600 to-purple-400 bg-clip-text text-transparent">
+                spirix.fun
+            </a>
+            <nav class="flex items-center gap-6 text-sm text-white/70">
+                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="status.html" class="hover:text-white transition">Status</a>
+                <a href="https://discord.gg/zhS7SMpKuj" target="_blank"
+                    class="hover:text-white transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <h3>systko dziala ok?</h3>
+
+    <!-- JS: Search -->
+    <script>
+        const input = document.getElementById("searchInput");
+        const cards = document.querySelectorAll("#productsGrid .card");
+
+        input.addEventListener("input", () => {
+            const query = input.value.toLowerCase();
+            cards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                card.style.display = name.includes(query) ? "block" : "none";
+            });
+        });
+    </script>
+
+</body>
+
+</html>

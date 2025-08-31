@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>spirix.fun – Product Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="bg-black text-white font-[Inter]">
+    <canvas id="networkCanvas" class="absolute top-0 left-0 w-full h-full -z-10"></canvas>
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-white/10">
+        <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+            <a href="../index.html"
+                class="text-2xl font-extrabold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+                spirix.fun
+            </a>
+            <nav class="flex items-center gap-6 text-sm text-white/70">
+                <a href="../index.html" class="hover:text-white transition">Home</a>
+                <a href="../status.html" class="hover:text-white transition">Status</a>
+                <a href="https://discord.gg/zhS7SMpKuj" target="_blank" class="hover:text-white transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <section class="flex flex-col lg:flex-row gap-8 py-16 px-6 max-w-6xl mx-auto">
+
+        <!-- LEWA STRONA -->
+        <div class="flex-1 flex flex-col gap-4">
+            <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+                <img src="../assets/reyna.png" alt="Fortnite Standard" class="w-full object-cover">
+            </div>
+            <h3 class="card-title">In-game menu</h3>
+            <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+                <img src="../assets/reyna.png" alt="Fortnite Standard" class="w-full object-cover">
+            </div>
+        </div>
+
+        <!-- PRAWA STRONA -->
+        <div class="flex-1 flex flex-col gap-4 p-6 bg-white/5 border border-white/10 rounded-2xl">
+
+            <h3 class="text-xl font-semibold">Select License Duration</h3>
+
+            <!-- Opcje cenowe -->
+            <div id="license-options" class="flex flex-col gap-3">
+                <button data-name="Daily License" data-price="7.99" data-desc="1 day access"
+                    class="license-btn flex items-center justify-between px-4 py-3 rounded-lg border border-white/10 bg-black/40 hover:border-purple-500 transition-all">
+                    <span>Daily License<br><span class="text-xs text-white/60">1 day access</span></span>
+                    <span class="text-purple-400 font-semibold">$7.99</span>
+                </button>
+
+                <button data-name="Weekly License" data-price="17.99" data-desc="1 week access"
+                    class="license-btn flex items-center justify-between px-4 py-3 rounded-lg border border-white/10 bg-black/40 hover:border-purple-500 transition-all">
+                    <span>Weekly License<br><span class="text-xs text-white/60">1 week access</span></span>
+                    <span class="text-purple-400 font-semibold">$17.99</span>
+                </button>
+
+                <button data-name="Monthly License" data-price="37.99" data-desc="1 month access"
+                    class="license-btn flex items-center justify-between px-4 py-3 rounded-lg border border-white/10 bg-black/40 hover:border-purple-500 transition-all">
+                    <span>Monthly License<br><span class="text-xs text-white/60">1 month access</span></span>
+                    <span class="text-purple-400 font-semibold">$37.99</span>
+                </button>
+
+                <!-- Wybrany (domyślnie) -->
+                <button data-name="Lifetime License" data-price="97.99" data-desc="Lifetime access + HWID Spoofer"
+                    class="license-btn flex items-center justify-between px-4 py-3 rounded-lg border-2 border-purple-500 bg-purple-500/20 transition-all">
+                    <div>
+                        <span>Lifetime License</span><br>
+                        <span class="text-xs text-white/60">Lifetime access + HWID Spoofer</span>
+                    </div>
+                    <span class="text-purple-400 font-semibold">$97.99</span>
+                </button>
+            </div>
+
+            <!-- Sekcja wyboru -->
+            <div class="mt-6 flex justify-between items-center border-t border-white/10 pt-4">
+                <div>
+                    <p class="text-sm text-white/60">Selected:</p>
+                    <p id="selected-name" class="font-semibold">Lifetime License</p>
+                </div>
+                <p id="selected-price" class="text-xl font-bold text-purple-400">$97.99</p>
+            </div>
+
+            <!-- Przycisk kupna -->
+            <button id="buy-btn" class="btn-primary">
+                Buy Lifetime License – $97.99
+            </button>
+        </div>
+    </section>
+
+    <!-- ZAKŁADKI -->
+    <!-- ZAKŁADKI -->
+    <section class="max-w-6xl mx-auto px-6 mt-12 mb-24">
+
+        <!-- kontener -->
+        <div class="p-4 bg-black/40 border border-white/10 rounded-xl shadow-lg">
+
+            <!-- guziki -->
+            <div class="flex gap-2 mb-4">
+                <button
+                    class="tab-btn flex-1 px-4 py-2 rounded-lg border-2 border-purple-500 bg-purple-500/20 font-semibold text-white transition-all focus:outline-none"
+                    data-tab="description">Description</button>
+                <button
+                    class="tab-btn flex-1 px-4 py-2 rounded-lg border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 font-semibold text-white transition-all focus:outline-none"
+                    data-tab="features">Features</button>
+                <button
+                    class="tab-btn flex-1 px-4 py-2 rounded-lg border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 font-semibold text-white transition-all focus:outline-none"
+                    data-tab="menu">Menu</button>
+                <button
+                    class="tab-btn flex-1 px-4 py-2 rounded-lg border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 font-semibold text-white transition-all focus:outline-none"
+                    data-tab="reviews">Reviews</button>
+            </div>
+
+            <!-- treści -->
+            <div class="bg-white/5 border border-white/10 rounded-lg p-6">
+                <div id="description" class="tab-content opacity-100 transition-opacity duration-500">
+                    <h3 class="text-xl font-bold mb-2">About Fortnite Cheat</h3>
+                    <p class="text-white/70">This cheat offers advanced features such as ESP, TriggerBot and Skin
+                        Changer.
+                        Works on both Windows 10 & 11, plug-and-play installation.</p>
+                </div>
+                <div id="features" class="tab-content hidden opacity-0 transition-opacity duration-500">
+                    <h3 class="text-xl font-bold mb-2">Key Features</h3>
+                    <ul class="list-disc list-inside text-white/70">
+                        <li>ESP – skeleton, box, username, distance</li>
+                        <li>TriggerBot</li>
+                        <li>Aimbot (good prediction)</li>
+                        <li>HWID Spoofer</li>
+                    </ul>
+                </div>
+                <div id="menu" class="tab-content hidden opacity-0 transition-opacity duration-500">
+                    <h3 class="text-xl font-bold mb-2">In-game Menu</h3>
+                    <p class="text-white/70">Clean UI menu that lets you toggle cheats in real time.</p>
+                </div>
+                <div id="reviews" class="tab-content hidden opacity-0 transition-opacity duration-500">
+                    <h3 class="text-xl font-bold mb-2">User Reviews</h3>
+                    <p class="text-white/70">⭐ 4.8/5 (351 reviews). Most users report undetected and smooth performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer class="py-16 px-6 border-t border-white/10 bg-white/5">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <div
+                    class="text-2xl font-extrabold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+                    spirix.fun</div>
+                <p class="text-white/60 mt-2 text-sm">Premium game cheats and essential hacks. Precision, control, power
+                    – Spirix.</p>
+            </div>
+            <div class="flex items-center gap-4 text-white/60">
+                <a class="hover:text-white transition" href="./products.html">Products</a>
+                <a class="hover:text-white transition" href="./status.html">Status</a>
+                <a class="hover:text-white transition" href="#testimonials">Testimonials</a>
+            </div>
+        </div>
+        <p class="text-center text-white/40 text-xs mt-6">© 2025 spirix.fun — All rights reserved.</p>
+    </footer>
+
+    <script>
+        // wybór licencji
+        const licenseButtons = document.querySelectorAll(".license-btn");
+        const selectedName = document.getElementById("selected-name");
+        const selectedPrice = document.getElementById("selected-price");
+        const buyBtn = document.getElementById("buy-btn");
+
+        licenseButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                // reset wszystkich do szarego
+                licenseButtons.forEach(b => {
+                    b.classList.remove("border-2", "border-purple-500", "bg-purple-500/20");
+                    b.classList.add("border", "border-white/10", "bg-black/40");
+                });
+
+                // ustaw kliknięty na fioletowy
+                btn.classList.remove("border", "border-white/10", "bg-black/40");
+                btn.classList.add("border-2", "border-purple-500", "bg-purple-500/20");
+
+                // update tekstów
+                const name = btn.dataset.name;
+                const price = btn.dataset.price;
+                selectedName.textContent = name;
+                selectedPrice.textContent = `$${price}`;
+                buyBtn.textContent = `Buy ${name} – $${price}`;
+            });
+        });
+
+        // zakładki
+        // zakładki
+        const tabs = document.querySelectorAll(".tab-btn");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                // reset wszystkich guzików
+                tabs.forEach(t => {
+                    t.classList.remove("border-2", "border-purple-500", "bg-purple-500/20");
+                    t.classList.add("border", "border-purple-500/30", "bg-purple-500/10");
+                });
+
+                // ustaw aktywny guzik
+                tab.classList.remove("border", "border-purple-500/30", "bg-purple-500/10");
+                tab.classList.add("border-2", "border-purple-500", "bg-purple-500/20");
+
+                // ukryj wszystkie treści
+                contents.forEach(c => {
+                    c.classList.add("hidden", "opacity-0");
+                    c.classList.remove("opacity-100");
+                });
+
+                // pokaż aktywną treść z animacją
+                const active = document.getElementById(tab.dataset.tab);
+                active.classList.remove("hidden");
+                setTimeout(() => {
+                    active.classList.add("opacity-100");
+                }, 50);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

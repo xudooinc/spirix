@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>spirix.fun – Product Search</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-black text-white font-[Inter]">
+  <canvas id="networkCanvas" class="absolute top-0 left-0 w-full h-full -z-10"></canvas>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-white/10">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="index.html"
+        class="text-2xl font-extrabold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+        spirix.fun
+      </a>
+      <nav class="flex items-center gap-6 text-sm text-white/70">
+        <a href="index.html" class="hover:text-white transition">Home</a>
+        <a href="status.html" class="hover:text-white transition">Status</a>
+        <a href="https://discord.gg/zhS7SMpKuj" target="_blank" class="hover:text-white transition">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO BOX -->
+  <section class="flex flex-col items-center justify-center py-16 px-6">
+    <div class="w-full max-w-4xl p-6 bg-white/5 border border-white/10 rounded-2xl flex flex-col gap-4">
+      <!-- Search Bar -->
+      <input id="searchInput" type="text" placeholder="Search products..."
+        class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:outline-none focus:border-purple-500 focus:shadow-[0_0_20px_rgba(192,38,211,0.5)] transition text-white placeholder-white/40">
+
+      <!-- Dropdowns -->
+      <div class="flex gap-4 mt-2 flex-col md:flex-row">
+        <!-- Category Dropdown -->
+        <div class="relative flex-1">
+          <button id="categoryBtn"
+            class="w-full bg-white/5 text-white rounded-xl px-4 py-3 text-left border border-white/10 hover:border-purple-500 focus:outline-none focus:shadow-[0_0_10px_rgba(192,38,211,0.5)] transition">
+            All Categories ▼
+          </button>
+          <ul id="categoryMenu"
+            class="absolute w-full bg-white/5 border border-white/10 rounded-xl mt-1 transform scale-y-0 origin-top transition-transform duration-300 z-50">
+            <li class="px-4 py-2 hover:bg-purple-600/30 cursor-pointer" data-value="all">All Categories</li>
+            <li class="px-4 py-2 hover:bg-purple-600/30 cursor-pointer" data-value="valorant">Valorant</li>
+            <li class="px-4 py-2 hover:bg-purple-600/30 cursor-pointer" data-value="fortnite">Fortnite</li>
+            <li class="px-4 py-2 hover:bg-purple-600/30 cursor-pointer" data-value="cs2">CS2</li>
+            <li class="px-4 py-2 hover:bg-purple-600/30 cursor-pointer" data-value="spoofer">Spoofer</li>
+          </ul>
+        </div>
+
+        <!-- Sort Dropdown -->
+        <div class="relative flex-1">
+          <button id="sortBtn"
+            class="w-full bg-white/5 text-white rounded-xl px-4 py-3 text-left border border-white/10 hover:border-purple-500 focus:outline-none focus:shadow-[0_0_10px_rgba(192,38,211,0.5)] transition">
+            Sort By ▼
+          </button>
+          <ul id="sortMenu"
+            class="absolute w-full bg-white/5 border border-white/10 rounded-xl mt-1 transform scale-y-0 origin-top transition-transform duration-300 z-50">
+            <li class="px-4 py-2 hover:bg-purple-600/30 cursor-pointer" data-value="price-asc">Price Low-High</li>
+            <li class="px-4 py-2 hover:bg-purple-600/30 cursor-pointer" data-value="price-desc">Price High-Low</li>
+            <li class="px-4 py-2 hover:bg-purple-600/30 cursor-pointer" data-value="az">A-Z</li>
+            <li class="px-4 py-2 hover:bg-purple-600/30 cursor-pointer" data-value="popular">Most Popular</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section id="products" class="py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div id="productsGrid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <!-- Product Cards -->
+        <article
+          class="card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500 transition-colors duration-300"
+          data-name="Valorant Standard" data-category="valorant" data-price="12.99">
+
+          <div
+            class="aspect-video rounded-xl overflow-hidden mb-4 transform transition-transform duration-300 hover:scale-105">
+            <img src="./assets/reyna.png" alt="Valorant Standard" class="w-full h-full object-cover">
+          </div>
+
+          <h3 class="text-lg font-semibold text-white">Valorant Standard</h3>
+
+          <!-- FLEXBOX dla przycisku i ceny -->
+          <div class="flex items-end justify-between mt-6">
+            <a class="btn-primary" href="./product-sites/valcheats.html">Buy now</a>
+            <div class="flex flex-col items-end leading-tight">
+              <span class="text-white/60 text-sm">Starting at</span>
+              <span class="text-lg font-semibold text-white">$13.99</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500 transition-colors duration-300"
+          data-name="Fortnite Cheat" data-category="fortnite" data-price="14.99">
+          <div
+            class="aspect-video rounded-xl overflow-hidden mb-4 transform transition-transform duration-300 hover:scale-105">
+            <img src="./assets/raze.png" alt="Fortnite Cheat" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-lg font-semibold text-white">Fortnite Cheat</h3>
+
+          <!-- FLEXBOX dla przycisku i ceny -->
+          <div class="flex items-end justify-between mt-6">
+            <a class="btn-primary" href="./product-sites/fncheats.html">Buy now</a>
+            <div class="flex flex-col items-end leading-tight">
+              <span class="text-white/60 text-sm">Starting at</span>
+              <span class="text-lg font-semibold text-white">$7.99</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500 transition-colors duration-300"
+          data-name="CS2 Cheat" data-category="cs2" data-price="13.99">
+          <div
+            class="aspect-video rounded-xl overflow-hidden mb-4 transform transition-transform duration-300 hover:scale-105">
+            <img src="./assets/reyna.png" alt="CS2 Cheat" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-lg font-semibold text-white">CS2 Cheat</h3>
+
+          <!-- FLEXBOX dla przycisku i ceny -->
+          <div class="flex items-end justify-between mt-6">
+            <a class="btn-primary" href="./product-sites/cscheats.html">Buy now</a>
+            <div class="flex flex-col items-end leading-tight">
+              <span class="text-white/60 text-sm">Starting at</span>
+              <span class="text-lg font-semibold text-white">$2.99</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500 transition-colors duration-300"
+          data-name="Spoofer Term" data-category="spoofer" data-price="8.99">
+          <div
+            class="aspect-video rounded-xl overflow-hidden mb-4 transform transition-transform duration-300 hover:scale-105">
+            <img src="./assets/hwid.png" alt="Spoofer Term" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-lg font-semibold text-white">Spoofer Term</h3>
+
+          <!-- FLEXBOX dla przycisku i ceny -->
+          <div class="flex items-end justify-between mt-6">
+            <a class="btn-primary" href="./product-sites/spoofer.html">Buy now</a>
+            <div class="flex flex-col items-end leading-tight">
+              <span class="text-white/60 text-sm">Starting at</span>
+              <span class="text-lg font-semibold text-white">$5.99</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-16 px-6 border-t border-white/10 bg-white/5">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <div
+          class="text-2xl font-extrabold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+          spirix.fun</div>
+        <p class="text-white/60 mt-2 text-sm">Premium game cheats and essential hacks. We're not competing – we're
+          spinbotting.</p>
+      </div>
+      <div class="flex items-center gap-4 text-white/60">
+        <a class="hover:text-white transition" href="./products.html">Products</a>
+        <a class="hover:text-white transition" href="./status.html">Status</a>
+        <a class="hover:text-white transition" href="#testimonials">Testimonials</a>
+      </div>
+    </div>
+    <p class="text-center text-white/40 text-xs mt-6">© 2025 spirix.fun — All rights reserved.</p>
+  </footer>
+
+  <!-- JS: Search + Dropdowns -->
+  <script>
+    // CUSTOM DROPDOWNS
+    var selectedCategory = "all";
+    var selectedSort = "price-asc";
+
+    var categoryBtn = document.getElementById("categoryBtn");
+    var categoryMenu = document.getElementById("categoryMenu");
+    var sortBtn = document.getElementById("sortBtn");
+    var sortMenu = document.getElementById("sortMenu");
+
+    // Dropdown toggle
+    categoryBtn.onclick = function () {
+      categoryMenu.classList.toggle("scale-y-0");
+      categoryMenu.classList.toggle("scale-y-100");
+    }
+    sortBtn.onclick = function () {
+      sortMenu.classList.toggle("scale-y-0");
+      sortMenu.classList.toggle("scale-y-100");
+    }
+
+
+    // Dropdown option click
+    var catItems = categoryMenu.getElementsByTagName("li");
+    for (var i = 0; i < catItems.length; i++) {
+      catItems[i].onclick = function () {
+        selectedCategory = this.getAttribute("data-value");
+        categoryBtn.textContent = this.textContent + " ▼";
+
+        // zamiast hidden używamy scale
+        categoryMenu.classList.add("scale-y-0");
+        categoryMenu.classList.remove("scale-y-100");
+
+        filterAndSort();
+      }
+    }
+
+    var sortItems = sortMenu.getElementsByTagName("li");
+    for (var i = 0; i < sortItems.length; i++) {
+      sortItems[i].onclick = function () {
+        selectedSort = this.getAttribute("data-value");
+        sortBtn.textContent = this.textContent + " ▼";
+
+        sortMenu.classList.add("scale-y-0");
+        sortMenu.classList.remove("scale-y-100");
+
+        filterAndSort();
+      }
+    }
+
+    // Close dropdowns when clicking outside
+    document.onclick = function (e) {
+      if (!categoryBtn.contains(e.target) && !categoryMenu.contains(e.target)) {
+        categoryMenu.classList.add("scale-y-0");
+        categoryMenu.classList.remove("scale-y-100");
+      }
+      if (!sortBtn.contains(e.target) && !sortMenu.contains(e.target)) {
+        sortMenu.classList.add("scale-y-0");
+        sortMenu.classList.remove("scale-y-100");
+      }
+    }
+
+    // SEARCH + FILTER + SORT
+    var input = document.getElementById("searchInput");
+    var productsGrid = document.getElementById("productsGrid");
+    var cards = Array.from(productsGrid.getElementsByClassName("card"));
+
+    // Funkcja aktualizująca liczbę produktów przy każdej kategorii
+    function updateCategoryCounts() {
+      var categories = ["all", "valorant", "fortnite", "cs2", "spoofer"];
+      categories.forEach(function (cat) {
+        var li = document.querySelector('#categoryMenu li[data-value="' + cat + '"]');
+        if (li) {
+          if (cat === "all") {
+            li.textContent = `All Categories (${cards.length})`;
+          } else {
+            var count = cards.filter(function (card) { return card.dataset.category === cat; }).length;
+            // zachowujemy nazwę kategorii
+            var name = li.getAttribute("data-value").charAt(0).toUpperCase() + li.getAttribute("data-value").slice(1);
+            li.textContent = `${name} (${count})`;
+          }
+        }
+      });
+    }
+
+    // Wywołaj raz przy starcie
+    updateCategoryCounts();
+
+    function filterAndSort() {
+      var query = input.value.toLowerCase();
+
+      var filtered = cards.filter(function (card) {
+        var name = card.dataset.name.toLowerCase();
+        var matchesQuery = name.includes(query);
+        var matchesCategory = selectedCategory === "all" || card.dataset.category === selectedCategory;
+        return matchesQuery && matchesCategory;
+      });
+
+      // Sorting
+      if (selectedSort === "price-asc") filtered.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
+      else if (selectedSort === "price-desc") filtered.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
+      else if (selectedSort === "az") filtered.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+      else if (selectedSort === "popular") filtered.sort((a, b) => (b.dataset.popularity || 0) - (a.dataset.popularity || 0));
+
+      productsGrid.innerHTML = "";
+      filtered.forEach(card => productsGrid.appendChild(card));
+      updateCategoryCounts(); // odświeża licznik po każdym filtrowaniu
+    }
+
+    input.addEventListener("input", filterAndSort);
+  </script>
+
+  <script src="./js/particles.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>spirix.fun – Precision, control, power – Spirix.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-black text-white font-[Inter]">
+  <canvas id="networkCanvas" class="absolute top-0 left-0 w-full h-full -z-10"></canvas>
+  <!-- HERO -->
+  <section class="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6">
+        <span class="text-xs uppercase tracking-widest text-white/70">spirix.fun</span>
+        <span class="text-xs text-white/40">• premium tools</span>
+      </div>
+
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+        Precision, control, power –<br class="hidden md:block" /> we're <span
+          class="bg-gradient-to-r from-fuchsia-600 to-purple-400 bg-clip-text text-transparent">Spirix</span>.
+      </h1>
+      <p class="mt-5 text-white/70 text-lg">Premium game tools and essential hacks with 24/7 support & bitcoin payments.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="./products.html" class="btn-primary">See products</a>
+        <a href="./status.html" class="btn-ghost">Status of our products</a>
+      </div>
+
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 text-white/60 text-sm">
+        <div class="stat"><span class="stat-number">99.9%</span> uptime</div>
+        <div class="stat"><span class="stat-number">24/7</span> support</div>
+        <div class="stat"><span class="stat-number">BTC</span> payments</div>
+        <div class="stat"><span class="stat-number">Anti</span> detect</div>
+      </div>
+    </div>
+
+    <div class="mt-16 animate-bounce-slow" aria-hidden="true">
+      <div class="w-6 h-10 border-2 border-neutral-700 rounded-full mx-auto flex items-start justify-center">
+        <div class="w-1 h-3 bg-gradient-to-b from-fuchsia-600 to-purple-400 rounded-full mt-2 animate-scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title">Best Selling Products</h2>
+      <p class="section-lead">Our top-rated products, handpicked for you.</p>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Card 1 -->
+        <article class="card">
+          <h3 class="card-title">Valorant Standard</h3>
+          <p class="card-desc">Basic features, easy start, and full compatibility.</p>
+          <ul class="card-list">
+            <li>Wall assist</li>
+            <li>Minimal aimbot</li>
+            <li>Regular updates</li>
+          </ul>
+          <a class="btn-primary mt-6" href="#">Buy now</a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <h3 class="card-title">VIP</h3>
+          <p class="card-desc">Extended feature set, improved enemy detection.</p>
+          <ul class="card-list">
+            <li>Smart ESP</li>
+            <li>Configurable recoil</li>
+            <li>Target prioritization</li>
+          </ul>
+          <a class="btn-primary mt-6" href="#">Buy now</a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <h3 class="card-title">Cloak</h3>
+          <p class="card-desc">HWID Spoofer for Apex Legends, Valorant, and more.</p>
+          <ul class="card-list">
+            <li>MOBO Spoofing</li>
+            <li>GPU Spoofing</li>
+            <li>CPU Spoofing</li>
+          </ul>
+          <a class="btn-primary mt-6" href="#">Buy now</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY -->
+  <section class="cards">
+    <div class="card">
+      <div class="icon">
+        <div class="bg-square"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a855f7"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+      </div>
+      <h3 class="feature-title">Anti-detection</h3>
+      <p class="feature-desc">Advanced anti-detection protection systems.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">
+        <div class="bg-square"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a855f7"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+        </svg>
+      </div>
+      <h3 class="feature-title">Fast updates</h3>
+      <p class="feature-desc">Instant adaptation to new versions.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">
+        <div class="bg-square"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a855f7"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 6v6l4 2" />
+          <circle cx="12" cy="12" r="10" />
+        </svg>
+      </div>
+      <h3 class="feature-title">Precision</h3>
+      <p class="feature-desc">Perfect accuracy and full control.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title">Opinions</h2>
+      <p class="section-lead">What our users say.</p>
+
+      <div class="mt-10 relative">
+        <div class="overflow-hidden rounded-2xl border border-white/10">
+          <div id="carousel" class="flex transition-transform duration-500 ease-out">
+            <div class="slide">
+              <div class="slide-inner">
+                <img class="avatar"
+                  src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=100&h=100&fit=crop&crop=face"
+                  alt="avatar" />
+                <div>
+                  <div class="slide-name">VortexAim</div>
+                  <div class="slide-rank">Immortal • 512 RR</div>
+                </div>
+              </div>
+              <p class="slide-text">"Perfect wallhack – I see the map clearly. The team thinks I'm a genius."</p>
+            </div>
+            <div class="slide">
+              <div class="slide-inner">
+                <img class="avatar"
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+                  alt="avatar" />
+                <div>
+                  <div class="slide-name">EliteFragger</div>
+                  <div class="slide-rank">Diamond • 420 RR</div>
+                </div>
+              </div>
+              <p class="slide-text">"Support 24/7 – every problem solved in minutes. Worth every paid penny."</p>
+            </div>
+            <div class="slide">
+              <div class="slide-inner">
+                <img class="avatar"
+                  src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&h=100&fit=crop&crop=face"
+                  alt="avatar" />
+                <div>
+                  <div class="slide-name">NightHawk_Pro</div>
+                  <div class="slide-rank">Ascendant • 380 RR</div>
+                </div>
+              </div>
+              <p class="slide-text">"Anti-detection works great – I've been playing safely for months without flags."
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center gap-2 mt-4">
+          <button class="dot" data-index="0" aria-label="slide 1"></button>
+          <button class="dot" data-index="1" aria-label="slide 2"></button>
+          <button class="dot" data-index="2" aria-label="slide 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-16 px-6 border-t border-white/10 bg-white/5">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <div
+          class="text-2xl font-extrabold bg-gradient-to-r from-fuchsia-600 to-purple-400 bg-clip-text text-transparent">
+          spirix.fun</div>
+        <p class="text-white/60 mt-2 text-sm">Premium game cheats and essential hacks. Precision, control, power – Spirix.</p>
+      </div>
+      <div class="flex items-center gap-4 text-white/60">
+        <a class="hover:text-white transition" href="./products.html">Products</a>
+        <a class="hover:text-white transition" href="./status.html">Status</a>
+        <a class="hover:text-white transition" href="#testimonials">Testimonials</a>
+      </div>
+    </div>
+    <p class="text-center text-white/40 text-xs mt-6">© 2025 spirix.fun — All rights reserved.</p>
+  </footer>
+
+  <script src="./js/particles.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
