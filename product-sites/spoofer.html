@@ -170,7 +170,9 @@
         const selectedName = document.getElementById("selected-name");
         const selectedPrice = document.getElementById("selected-price");
         const buyBtn = document.getElementById("buy-btn");
-
+        buyBtn.addEventListener("click", () => {
+            window.location.href = "https://dc.spirix.fun/";
+        });
         licenseButtons.forEach(btn => {
             btn.addEventListener("click", () => {
                 // reset wszystkich do szarego
