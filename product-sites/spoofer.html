@@ -322,7 +322,7 @@
         // Kliknięcie w Buy → tylko gdy checkbox zaznaczony
         buyBtn.addEventListener("click", () => {
             if (!buyBtn.disabled) {
-                tosModal.classList.remove("hidden");
+                window.location.href = redirectUrl;
             }
         });
 
