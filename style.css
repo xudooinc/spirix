@@ -102,3 +102,66 @@
   background-clip: text;
   animation: shine 6s linear infinite;
 }
+
+/* główny kursor */
+#smooth-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+  box-shadow: 0 0 20px rgba(167,139,250,0.8), 0 0 40px rgba(139,92,246,0.6);
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+#smooth-cursor.hovered {
+  width: 40px;
+  height: 40px;
+}
+
+/* trail element */
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(167,139,250,0.5);
+  filter: blur(8px);
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s linear, opacity 0.2s ease;
+}
+
+/* Scrollbar dla przeglądarek opartych o WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111; /* ciemne tło */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #7e22ce, #a855f7); /* gradient fioletowy */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #9333ea, #c084fc); /* jaśniejszy fiolet na hover */
+}
+
+/* Scrollbar dla Firefoxa */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a855f7 #111;
+}

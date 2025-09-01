@@ -33,11 +33,11 @@
         <!-- LEWA STRONA -->
         <div class="flex-1 flex flex-col gap-4">
             <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
-                <img src="../assets/hwid.png" alt="Spoofer" class="w-full object-cover">
+                <img src="../assets/reyna.png" alt="Counter Strike 2 Standard" class="w-full object-cover">
             </div>
             <h3 class="card-title">In-game menu</h3>
             <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
-                <img src="../assets/hwid.png" alt="Spoofer" class="w-full object-cover">
+                <img src="../assets/reyna.png" alt="Counter Strike 2 Standard" class="w-full object-cover">
             </div>
         </div>
 
@@ -78,16 +78,42 @@
             </div>
 
             <!-- Sekcja wyboru -->
-            <div class="mt-6 flex justify-between items-center border-t border-white/10 pt-4">
-                <div>
-                    <p class="text-sm text-white/60">Selected:</p>
-                    <p id="selected-name" class="font-semibold">Lifetime License</p>
+            <div class="mt-6 border-t border-white/10 pt-4">
+
+                <!-- ToS akceptacja -->
+                <div class="flex items-center justify-between mb-4">
+                    <!-- Tekst z linkiem do modala -->
+                    <button id="open-tos" class="text-sm text-purple-400 hover:underline">
+                        Terms Of Service
+                    </button>
+
+                    <label class="flex items-center gap-2 cursor-pointer select-none">
+                        <input id="tos-checkbox" type="checkbox" class="peer hidden">
+
+                        <!-- custom checkmark -->
+                        <span class="w-5 h-5 flex items-center justify-center rounded-md border border-white/30 
+               peer-checked:bg-gradient-to-r peer-checked:from-purple-600 peer-checked:to-purple-400
+               peer-checked:border-purple-500 transition-all duration-300">
+                            <svg class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100 transition-opacity duration-200"
+                                fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <span class="text-sm">I agree</span>
+                    </label>
                 </div>
-                <p id="selected-price" class="text-xl font-bold text-purple-400">$97.99</p>
+
+                <div class="flex justify-between items-center">
+                    <div>
+                        <p class="text-sm text-white/60">Selected:</p>
+                        <p id="selected-name" class="font-semibold">Lifetime License</p>
+                    </div>
+                    <p id="selected-price" class="text-xl font-bold text-purple-400">$97.99</p>
+                </div>
             </div>
 
             <!-- Przycisk kupna -->
-            <button id="buy-btn" class="btn-primary" href="https://dc.spirix.fun/">
+            <button id="buy-btn" class="btn-primary opacity-50 cursor-not-allowed" disabled>
                 Buy Lifetime License – $97.99
             </button>
         </div>
@@ -119,7 +145,7 @@
             <!-- treści -->
             <div class="bg-white/5 border border-white/10 rounded-lg p-6">
                 <div id="description" class="tab-content opacity-100 transition-opacity duration-500">
-                    <h3 class="text-xl font-bold mb-2">About Spoofer</h3>
+                    <h3 class="text-xl font-bold mb-2">About Counter Strike 2 Cheat</h3>
                     <p class="text-white/70">This cheat offers advanced features such as ESP, TriggerBot and Skin
                         Changer.
                         Works on both Windows 10 & 11, plug-and-play installation.</p>
@@ -164,28 +190,157 @@
         <p class="text-center text-white/40 text-xs mt-6">© 2025 spirix.fun — All rights reserved.</p>
     </footer>
 
+    <!-- MODAL TOS -->
+    <div id="tos-modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+        <div class="bg-black border border-white/10 rounded-2xl p-6 max-w-4xl w-full text-white shadow-xl">
+            <h2 class="text-xl font-bold mb-4">Terms of Service</h2>
+            <div class="max-h-[80vh] overflow-y-auto text-sm text-white/70 mb-4">
+                <p>
+                    By purchasing and using this software you agree that:
+                </p>
+                <ul class="list-disc list-inside mt-2">
+                    <li>TERMS OF SERVICE</li>
+
+                    <li>Last Updated: September 2025</li>
+
+                    <p>Please read these Terms of Service ("Terms", "Agreement") carefully before purchasing,
+                        downloading, installing, or otherwise using our products and services. By purchasing or using
+                        any product offered by spirix.fun ("Company", "We", "Our"), you ("User", "You", "Your")
+                        acknowledge that You have read, understood, and agree to be bound by these Terms.</p>
+
+                    <li>1. GENERAL CONDITIONS</li>
+                    <li>1.1. You must be at least 18 years old or have legal parental/guardian consent to use our
+                        services.</li>
+                    <li>1.2. By purchasing or using our products, You agree that You are solely responsible for
+                        compliance with all applicable laws in Your jurisdiction.</li>
+                    <li>1.3. We reserve the right to update, modify, or replace these Terms at any time without prior
+                        notice. It is Your responsibility to review them periodically.</li>
+
+                    <li>2. LICENSE GRANT</li>
+                    <li>2.1. Upon purchase, You are granted a non-exclusive, non-transferable, revocable license to use
+                        our software for personal purposes only.</li>
+                    <li>2.2. You may not resell, redistribute, lease, sublicense, or otherwise transfer access to our
+                        software without explicit written permission from Us.</li>
+                    <li>2.3. Access duration depends on the license purchased (daily, weekly, monthly, lifetime, etc.).
+                    </li>
+
+                    <li>3. ACCEPTABLE USE</li>
+                    <li>3.1. You agree not to use our software for any illegal, malicious, or unethical purposes.</li>
+                    <li>3.2. You understand that using cheats, modifications, or automation tools in third-party
+                        software (such as video games) may violate the Terms of Service of said third parties and may
+                        lead to account suspensions, bans, or other penalties. We are not responsible for such
+                        consequences.</li>
+                    <li>3.3. You are strictly prohibited from attempting to decompile, reverse-engineer, or tamper with
+                        the product in any way.</li>
+
+                    <li>4. DISCLAIMER OF LIABILITY</li>
+                    <li>4.1. Our products are provided "as is" and "as available" without warranties of any kind,
+                        whether express or implied.</li>
+                    <li>4.2. We make no guarantees regarding the functionality, safety, undetectability, or reliability
+                        of our software.</li>
+                    <li>4.3. You agree that We are not liable for any direct, indirect, incidental, special, or
+                        consequential damages that may arise from the use or misuse of our products, including but not
+                        limited to account bans, data loss, or financial loss.</li>
+
+                    <li>5. REFUNDS & PAYMENTS</li>
+                    <li>5.1. All sales are final. No refunds, exchanges, or chargebacks are permitted after purchase,
+                        except where required by law.</li>
+                    <li>5.2. Payments are handled by third-party processors. We do not store or manage payment
+                        information directly.</li>
+
+                    <li>6. UPDATES & SUPPORT</li>
+                    <li>6.1. We may, but are not obligated to, provide updates, patches, or new versions of the
+                        software.</li>
+                    <li>6.2. Lifetime licenses do not guarantee perpetual software availability. "Lifetime" refers to
+                        the lifetime of the product, not the lifetime of the user.</li>
+                    <li>6.3. Support is provided on a best-effort basis and is not guaranteed.</li>
+
+                    <li>7. TERMINATION</li>
+                    <li>7.1. We reserve the right to suspend, revoke, or terminate Your license without refund if You
+                        violate these Terms.</li>
+                    <li>7.2. Upon termination, You must immediately cease all use of the software.</li>
+
+                    <li>8. INDEMNIFICATION</li>
+                    <li>You agree to indemnify, defend, and hold harmless spirix.fun, its owners, employees, partners,
+                        and affiliates from any claims, damages, liabilities, losses, or expenses arising from Your use
+                        of our products or violation of these Terms.</li>
+
+                    <li>9. GOVERNING LAW</li>
+                    <li>These Terms shall be governed and construed in accordance with the applicable laws of the
+                        jurisdiction where the Company is registered, without regard to conflict of law provisions.</li>
+
+                    <li>10. CONTACT</li>
+                    <li>For any questions regarding these Terms, please contact us via our official communication
+                        channels (e.g., Discord).</li>
+
+                    <p>BY CLICKING "ACCEPT" OR BY USING OUR PRODUCTS, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD,
+                        AND AGREED TO THESE TERMS OF SERVICE IN FULL.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex justify-end gap-4">
+                <button id="accept-btn"
+                    class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 font-semibold transition">
+                    Accept & Continue
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // wybór licencji
+        // Pobranie elementów
         const licenseButtons = document.querySelectorAll(".license-btn");
         const selectedName = document.getElementById("selected-name");
         const selectedPrice = document.getElementById("selected-price");
         const buyBtn = document.getElementById("buy-btn");
-        buyBtn.addEventListener("click", () => {
-            window.location.href = "https://dc.spirix.fun/";
+        const tosModal = document.getElementById("tos-modal");
+        const acceptBtn = document.getElementById("accept-btn");
+        const tosCheckbox = document.getElementById("tos-checkbox");
+        const openTos = document.getElementById("open-tos");
+
+        let redirectUrl = "https://dc.spirix.fun/";
+
+        // Na start guzik zablokowany
+        buyBtn.disabled = true;
+
+        // Kliknięcie w Terms Of Service → otwiera modal
+        openTos.addEventListener("click", () => {
+            tosModal.classList.remove("hidden");
         });
+
+        // Odblokowanie guzika po zaznaczeniu ToS
+        tosCheckbox.addEventListener("change", () => {
+            if (tosCheckbox.checked) {
+                buyBtn.disabled = false;
+                buyBtn.classList.remove("opacity-50", "cursor-not-allowed");
+            } else {
+                buyBtn.disabled = true;
+                buyBtn.classList.add("opacity-50", "cursor-not-allowed");
+            }
+        });
+
+        // Kliknięcie w Buy → tylko gdy checkbox zaznaczony
+        buyBtn.addEventListener("click", () => {
+            if (!buyBtn.disabled) {
+                tosModal.classList.remove("hidden");
+            }
+        });
+
+        // Obsługa Accept w modalu
+        acceptBtn.addEventListener("click", () => {
+            tosModal.classList.add("hidden");
+        });
+
+        // Zmiana licencji
         licenseButtons.forEach(btn => {
             btn.addEventListener("click", () => {
-                // reset wszystkich do szarego
                 licenseButtons.forEach(b => {
                     b.classList.remove("border-2", "border-purple-500", "bg-purple-500/20");
                     b.classList.add("border", "border-white/10", "bg-black/40");
                 });
-
-                // ustaw kliknięty na fioletowy
                 btn.classList.remove("border", "border-white/10", "bg-black/40");
                 btn.classList.add("border-2", "border-purple-500", "bg-purple-500/20");
 
-                // update tekstów
                 const name = btn.dataset.name;
                 const price = btn.dataset.price;
                 selectedName.textContent = name;
@@ -194,8 +349,7 @@
             });
         });
 
-        // zakładki
-        // zakładki
+        // Zakładki
         const tabs = document.querySelectorAll(".tab-btn");
         const contents = document.querySelectorAll(".tab-content");
 
