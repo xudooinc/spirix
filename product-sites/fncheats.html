@@ -48,19 +48,19 @@
 
             <!-- Opcje cenowe -->
             <div id="license-options" class="flex flex-col gap-3">
-                <button data-name="Daily License" data-price="7.99" data-desc="1 day access"
+                <button data-name="Daily License" data-price="7.99" data-desc="1 day access" data-link="https://whop.com/spirix-fun/fn-cheats-1day/"
                     class="license-btn flex items-center justify-between px-4 py-3 rounded-lg border border-white/10 bg-black/40 hover:border-purple-500 transition-all">
                     <span>Daily License<br><span class="text-xs text-white/60">1 day access</span></span>
                     <span class="text-purple-400 font-semibold">$7.99</span>
                 </button>
 
-                <button data-name="Weekly License" data-price="17.99" data-desc="1 week access"
+                <button data-name="Weekly License" data-price="17.99" data-desc="1 week access" data-link="https://whop.com/spirix-fun/fn-cheats-7day/"
                     class="license-btn flex items-center justify-between px-4 py-3 rounded-lg border border-white/10 bg-black/40 hover:border-purple-500 transition-all">
-                    <span>Weekly License<br><span class="text-xs text-white/60">1 week access</span></span>
+                    <span>Weekly License<br><span class="text-xs text-white/60">7 days access</span></span>
                     <span class="text-purple-400 font-semibold">$17.99</span>
                 </button>
 
-                <button data-name="Monthly License" data-price="37.99" data-desc="1 month access"
+                <button data-name="Monthly License" data-price="37.99" data-desc="1 month access" data-link="https://whop.com/spirix-fun/fn-cheats-30day/"
                     class="license-btn flex items-center justify-between px-4 py-3 rounded-lg border border-white/10 bg-black/40 hover:border-purple-500 transition-all">
                     <span>Monthly License<br><span class="text-xs text-white/60">1 month access</span></span>
                     <span class="text-purple-400 font-semibold">$37.99</span>
@@ -68,6 +68,7 @@
 
                 <!-- Wybrany (domyślnie) -->
                 <button data-name="Lifetime License" data-price="97.99" data-desc="Lifetime access + HWID Spoofer"
+                    data-link="https://whop.com/spirix-fun/fn-cheats-lifetime/"
                     class="license-btn flex items-center justify-between px-4 py-3 rounded-lg border-2 border-purple-500 bg-purple-500/20 transition-all">
                     <div>
                         <span>Lifetime License</span><br>
@@ -91,7 +92,7 @@
                         <input id="tos-checkbox" type="checkbox" class="peer hidden">
 
                         <!-- custom checkmark -->
-                        <span class="w-5 h-5 flex items-center justify-center rounded-md border border-white/30 
+                        <span class="w-5 h-5 flex items-center justify-center rounded-md border border-white/30
                peer-checked:bg-gradient-to-r peer-checked:from-purple-600 peer-checked:to-purple-400
                peer-checked:border-purple-500 transition-all duration-300">
                             <svg class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100 transition-opacity duration-200"
@@ -269,7 +270,8 @@
                     <li>These Terms shall be governed and construed in accordance with the applicable laws of the
                         jurisdiction where the Company is registered, without regard to conflict of law provisions.</li>
 
-                    <li>10. CONTACT</li>
+                    <li>10.
+                    <li>CONTACT</li>
                     <li>For any questions regarding these Terms, please contact us via our official communication
                         channels (e.g., Discord).</li>
 
@@ -298,7 +300,7 @@
         const tosCheckbox = document.getElementById("tos-checkbox");
         const openTos = document.getElementById("open-tos");
 
-        let redirectUrl = "https://dc.spirix.fun/";
+        let redirectUrl = "link 4"; // Default link for Lifetime License
 
         // Na start guzik zablokowany
         buyBtn.disabled = true;
@@ -343,9 +345,11 @@
 
                 const name = btn.dataset.name;
                 const price = btn.dataset.price;
+                const link = btn.dataset.link;
                 selectedName.textContent = name;
                 selectedPrice.textContent = `$${price}`;
                 buyBtn.textContent = `Buy ${name} – $${price}`;
+                redirectUrl = link; // Update the redirect URL
             });
         });
 
